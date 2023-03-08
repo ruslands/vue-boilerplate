@@ -1,0 +1,48 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    @apply box-border m-0 relative font-normal;
+  }
+
+  body {
+    @apply min-h-screen  text-gray-800 bg-white transition-colors duration-500 leading-6 font-sans text-base antialiased;
+    @apply xl:flex xl:place-items-center;
+    text-rendering: optimizeLegibility;
+    background: #F9F9F9;
+  }
+
+  .main {
+    @apply max-w-7xl p-8 mx-auto my-0 font-normal h-screen flex;
+    @apply xl:grid xl:grid-cols-2 xl:gap-x-8 xl:py-0 xl:px-8;
+  }
+
+  a {
+    @apply no-underline text-jade-500 duration-400;
+
+    &:hover {
+      @apply hover-hover:bg-jade-900;
+    }
+  }
+}
+
+.page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: column nowrap;
+  transition: all .75s cubic-bezier(.55,0,.1,1);
+  position: relative;
+}
+
+.header {
+
+}
+
+.footer {
+
+}
