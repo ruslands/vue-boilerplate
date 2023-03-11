@@ -1,6 +1,10 @@
 <script lang="ts" setup>
 import { ref } from "vue";
+import { useRoleSelector } from "@/composables/useRoleSelector";
+
 import SelectRoleItem from "@/components/SelectRoleItem.vue";
+
+const { currentRole, selectRole, RoleTypes } = useRoleSelector();
 
 const user = "SpikkerNet";
 
@@ -9,27 +13,15 @@ const isRemember = ref(true);
 const userRoles = ref([
   {
     id: 1,
-    type: "picker",
-    active: false,
+    type: RoleTypes.PICKER,
+    active: currentRole.value === RoleTypes.PICKER,
   },
   {
     id: 2,
-    type: "courier",
-    active: true,
+    type: RoleTypes.COURIER,
+    active: currentRole.value === RoleTypes.COURIER,
   },
 ]);
-
-const setActiveRole = (id: number) => {
-  userRoles.value.map((item) => {
-    return (item.active = false);
-  });
-
-  const currentRole = userRoles.value.find((item) => item.id === id);
-
-  if (currentRole) {
-    currentRole.active = true;
-  }
-};
 </script>
 <template>
   <div class="mt-12 w-full text-center">
@@ -44,8 +36,8 @@ const setActiveRole = (id: number) => {
         v-for="role in userRoles"
         :key="role.id"
         :type="role.type"
-        :is-active="role.active"
-        @click="setActiveRole(role.id)"
+        :is-active="currentRole === role.type"
+        @click="selectRole(role.type)"
       />
     </van-space>
     <div class="flex items-center mb-14">

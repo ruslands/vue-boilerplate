@@ -17,7 +17,7 @@
   }
 
   .main {
-    @apply max-w-7xl p-8 mx-auto my-0 font-normal h-screen flex;
+    @apply max-w-7xl p-4 mx-auto my-0 font-normal h-screen flex;
     @apply xl:grid xl:grid-cols-2 xl:gap-x-8 xl:py-0 xl:px-8;
   }
 

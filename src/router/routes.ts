@@ -29,6 +29,9 @@ export default [
       {
         path: "",
         name: "orders",
+        meta: {
+          title: "menu.orders",
+        },
         components: {
           default: () => import("@/views/OrdersPickerView.vue"),
           footer: FooterMain,
@@ -38,17 +41,38 @@ export default [
       {
         path: "order/:id",
         name: "orderDetail",
-        components: { default: () => import("@/views/OrderDetailView.vue") },
+        meta: {
+          title: "menu.order_detail",
+        },
+        components: {
+          default: () => import("@/views/OrderDetailView.vue"),
+          footer: FooterMain,
+          header: HeaderMain,
+        },
       },
       {
         path: "delivery",
         name: "delivery",
-        components: { default: () => import("@/views/DeliveryView.vue") },
+        meta: {
+          title: "menu.bag",
+        },
+        components: {
+          default: () => import("@/views/DeliveryView.vue"),
+          footer: FooterMain,
+          header: HeaderMain,
+        },
       },
       {
         path: "profile",
         name: "profile",
-        components: { default: () => import("@/views/ProfileView.vue") },
+        meta: {
+          title: "menu.profile",
+        },
+        components: {
+          default: () => import("@/views/ProfileView.vue"),
+          footer: FooterMain,
+          header: HeaderMain,
+        },
       },
     ],
   },

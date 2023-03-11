@@ -1,5 +1,8 @@
 {
   "sign": {
     "authGoogle": "Continue with Google"
+  },
+  "profile": {
+    "title": "App language"
   }
 }

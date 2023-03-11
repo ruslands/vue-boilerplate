@@ -7,8 +7,15 @@ module.exports = {
       colors: {
         transparent: "transparent",
         current: "currentColor",
+        "base-background": "#F9F9F9",
         "base-text": "#323233",
+        "secondary-text": "#696969",
+        "secondary-title": "#797979",
+        "custom-gray": "#4D4D4D",
         "light-green": "#23BD1B",
+        "lightest-green": "#30BA29",
+        "custom-brown": "#1A1A1A",
+        "border-gray": "#c1c1c1",
         jade: {
           50: "#eafff5",
           100: "#cdfee5",
@@ -31,6 +38,10 @@ module.exports = {
       },
       fontFamily: {
         sans: ["PingFang SC", "sans-serif"],
+      },
+      fontSize: {
+        "custom-15": ["15px", "21px"],
+        "custom-13": ["13px", "22px"],
       },
       transitionDuration: {
         400: "400ms",

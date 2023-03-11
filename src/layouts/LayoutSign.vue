@@ -5,7 +5,9 @@ import LogoSVG from "@/components/svg/LogoSVG.vue";
 const { calcTransition } = useCalculateTransition();
 </script>
 <template>
-  <div class="main font-sans flex flex-col items-center justify-center w-full">
+  <div
+    class="main font-sans flex flex-col items-center justify-center w-full p-8"
+  >
     <LogoSVG class="mt-24" />
     <router-view v-slot="{ Component }">
       <div class="grow w-full flex justify-center">
