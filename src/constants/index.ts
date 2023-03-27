@@ -1,9 +1,8 @@
-export const APP_URL = import.meta.env.VITE_APP_URL
 export const APP_HOSTNAME = import.meta.env.VITE_APP_HOSTNAME
 
-export const API_AUTH_PATH = '/api/auth/v1/auth'
-export const REFRESH_TOKEN_PATH = '/api/auth/v1/auth'
-export const AUTH_CALLBACK_PATH = '/auth/callback'
+export const APP_URL = '/fulfillment/app'
+export const API_AUTH_V1 = '/api/auth/v1'
+export const API_CORE_V1 = '/api/core/v1'
 
 export const PRIVACY_POLICY_URL = '/privacy-policy'
 export const TERMS_OF_SERVICE_URL = '/terms-of-service'

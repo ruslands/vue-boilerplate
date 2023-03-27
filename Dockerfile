@@ -1,6 +1,9 @@
 FROM node:18-alpine as build-stage
 WORKDIR /app
 
+ARG VITE_APP_HOSTNAME
+ENV VITE_APP_HOSTNAME=${VITE_APP_HOSTNAME}
+
 COPY package.json yarn.lock ./
 RUN yarn install --frozen-lockfile
 
