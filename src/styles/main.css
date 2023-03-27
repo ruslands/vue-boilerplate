@@ -1,0 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --van-button-default-height: 50px !important;
+  --van-button-normal-padding: 0 40px !important;
+  --van-button-radius: 8px !important;
+  --van-button-border-width: 0 !important;
+}
