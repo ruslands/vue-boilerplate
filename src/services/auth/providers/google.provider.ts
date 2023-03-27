@@ -4,17 +4,17 @@ import type { IProvider,
   IAuthorizeResponse
 } from '@/services/auth/providers/provider.interface'
 import { isAxiosError } from 'axios'
-import { API_AUTH_PATH, APP_URL, AUTH_CALLBACK_PATH } from '@/constants'
+import { API_AUTH_V1, APP_URL } from '@/constants'
 
 class GoogleProvider implements IProvider {
-  REDIRECT_URL = window.location.origin + APP_URL + AUTH_CALLBACK_PATH
+  REDIRECT_URL = window.location.origin + APP_URL + '/auth/callback'
 
   // eslint-disable-next-line no-useless-constructor
   constructor (readonly client: Axios) {}
 
   async getRedirectUrl (): Promise<void | string> {
     try {
-      await this.client.get(API_AUTH_PATH + '/google', {
+      await this.client.get(API_AUTH_V1 + '/auth/google', {
         params: {
           redirect_enable: false,
           redirect_uri: this.REDIRECT_URL
@@ -32,7 +32,7 @@ class GoogleProvider implements IProvider {
   async authorize (params: IAuthorizePayload): Promise<IAuthorizeResponse> {
     const {
       data: { data, meta }
-    } = await this.client.get(API_AUTH_PATH + '/google/callback', {
+    } = await this.client.get(API_AUTH_V1 + '/auth/google/callback', {
       params,
       headers: {
         'redirect-uri': this.REDIRECT_URL

@@ -1,6 +1,6 @@
 import axios, { AxiosError, HttpStatusCode } from 'axios'
 import { useAuthorization } from '@/stores/authorization'
-import { APP_HOSTNAME, REFRESH_TOKEN_PATH } from '@/constants'
+import { API_AUTH_V1, APP_HOSTNAME } from '@/constants'
 
 interface RequestQueueItem {
   resolve: (value?: Promise<unknown> | PromiseLike<Promise<unknown>>) => void
@@ -45,7 +45,7 @@ axiosClient.interceptors.response.use(
 
     const { isAuthorized, logout, authData, refreshToken } = useAuthorization()
 
-    if (error.config.url === REFRESH_TOKEN_PATH) {
+    if (error.config.url === API_AUTH_V1 + '/auth/refresh-token') {
       return Promise.reject(error)
     }
 
