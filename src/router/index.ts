@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import type { NavigationGuard } from 'vue-router'
 import { useAuthorization } from '@/stores/authorization'
-import { APP_URL, AUTH_CALLBACK_PATH } from '@/constants'
+import { APP_URL } from '@/constants'
 
 const authGuard: NavigationGuard = (to, from, next) => {
   const { isAuthorized } = useAuthorization()
@@ -24,7 +24,7 @@ const router = createRouter({
       beforeEnter: [guestGuard]
     },
     {
-      path: AUTH_CALLBACK_PATH,
+      path: '/auth/callback',
       name: 'auth-callback',
       meta: { layout: 'EmptyLayout' },
       component: () => import('@/views/AuthCallbackView.vue'),
