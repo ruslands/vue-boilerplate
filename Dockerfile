@@ -1,11 +1,11 @@
-FROM node:17-alpine as build-stage
+FROM node:18-alpine as build-stage
 WORKDIR /app
 
-COPY *.json ./
+COPY package.json yarn.lock ./
+RUN yarn install --frozen-lockfile
 
-RUN npm ci
 COPY . .
-RUN npm run build
+RUN yarn build
 
 FROM nginx:stable-alpine as production-stage
 COPY ./nginx/nginx.conf /etc/nginx/nginx.conf

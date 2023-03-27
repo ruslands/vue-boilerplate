@@ -1,0 +1,53 @@
+{
+  "root": true,
+  "extends": [
+    "standard",
+    "@vue/typescript/recommended",
+    "plugin:vue/vue3-recommended",
+    "@vue/typescript",
+    "plugin:vue/base"
+  ],
+
+  "env": {
+    "browser": true,
+    "es6": true,
+    "vue/setup-compiler-macros": true
+  },
+
+  "parserOptions": {
+    "ecmaVersion": 2020
+  },
+
+  "rules": {
+    "max-len": ["warn", {
+      "code": 80,
+      "comments": 80,
+      "ignoreUrls": true,
+      "ignoreStrings": true,
+      "ignoreTemplateLiterals": true,
+      "ignoreRegExpLiterals": true,
+      "ignorePattern": "\".+\""
+    }],
+    "no-console": ["warn", {
+      "allow": ["warn", "error"]
+    }],
+    "no-debugger": "error",
+    "comma-dangle": ["warn", "only-multiline"],
+    "arrow-parens": "off",
+    "indent": "off",
+    "@typescript-eslint/indent": ["warn", 2, { "SwitchCase": 1 }],
+    "no-trailing-spaces": "warn",
+    "object-curly-spacing": ["warn", "always"],
+    "no-multi-spaces": "warn",
+    "no-multiple-empty-lines": ["warn", { "max": 1, "maxEOF": 0 }],
+    "eol-last": "warn",
+    "keyword-spacing": "warn",
+    "space-infix-ops": "warn",
+    
+    "vue/multi-word-component-names": "off",
+    "vue/padding-line-between-blocks": "warn",
+    "vue/v-on-event-hyphenation": ["warn", "always", {
+      "ignore": ["update:modelValue"]
+    }]
+  }
+}

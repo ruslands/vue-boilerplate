@@ -1,19 +1,23 @@
-<script setup lang="ts">
-import { RouterView } from "vue-router";
-</script>
-
 <template>
-  <RouterView />
+  <component :is="layout" />
 </template>
 
-<style scoped lang="scss">
-nav a {
-  &.router-link-exact-active {
-    @apply text-gray-800 dark:text-white;
+<script setup lang="ts">
+import { computed } from 'vue'
 
-    &:hover {
-      @apply bg-transparent;
-    }
+import DefaultLayout from '@/layouts/DefaultLayout.vue'
+import EmptyLayout from '@/layouts/EmptyLayout.vue'
+
+import { useRoute } from 'vue-router'
+
+const route = useRoute()
+const layout = computed(() => {
+  switch (route.meta.layout) {
+    case 'DefaultLayout':
+      return DefaultLayout
+    case 'EmptyLayout':
+    default:
+      return EmptyLayout
   }
-}
-</style>
+})
+</script>
